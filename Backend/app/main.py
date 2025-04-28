@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from .routes import patients, appointments, doctors, medical_histories
-
+from fastapi.middleware.cors import CORSMiddleware
+from .routes import patients, appointments, doctors, medical_histories, auth, users
 from .database import get_db
 
 app = FastAPI(
@@ -9,13 +9,20 @@ app = FastAPI(
     version="1.0.0"
 )
 
-#
-# Include routers
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Match your frontend origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(auth.router)
+app.include_router(users.router)
 app.include_router(patients.router)
 app.include_router(appointments.router)
 app.include_router(doctors.router)
 app.include_router(medical_histories.router)
-# app.include_router(auth.router)  # Comment out if not using authentication
 
 @app.get("/")
 async def root():
