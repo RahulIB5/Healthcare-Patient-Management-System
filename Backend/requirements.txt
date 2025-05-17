@@ -22,3 +22,5 @@ python-multipart # Form data parsing for login endpoint
 
 # Utilities
 httpx            # HTTP client for testing or external API calls
+
+SendGrid
