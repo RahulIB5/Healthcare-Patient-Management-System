@@ -24,13 +24,28 @@
 
 ---
 
+
+- Preliminary Steps
+  - Make a neon.tech account , start a project and copy project url with and without pooling.
+  - Make a Twilio account, and copy sid , auth token and sender phone number.
+  - Obtain SendGrid api key and sender email.
+  - Make  new file in Backend folder call .env and paste all of the above with names :
+    - DATABASE_URL 
+    - DIRECT_URL
+    - TWILIO_ACCOUNT_SID
+    - TWILIO_AUTH_TOKEN
+    - TWILIO_PHONE_NUMBER
+    - SENDGRID_API_KEY
+    - SENDGRID_SENDER_EMAIL
+
+
 - FrontEnd
 
 ```sh
 cd Frontend
 ```
 
-1. Install dependanccies and assets
+1. Install dependancies and assets
 ```
 npm install
 ```
